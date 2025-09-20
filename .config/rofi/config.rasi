@@ -1,0 +1,64 @@
+configuration {
+    modi: "drun,run,window";
+    font: "JetBrainsMono Nerd Font 10";
+    show-icons: true;
+    terminal: "ghostty";
+}
+
+/* --- Theme --- */
+* {
+    /* icy blue translucent background */
+    background:       rgba(170, 200, 230, 0.12);   /* base bg */
+    background-alt:   rgba(170, 200, 230, 0.20);   /* input bg */
+    foreground:       #a5c6e5;                    /* text colour */
+    selected-bg:      rgba(130, 180, 230, 0.35);  /* selected highlight */
+    border-color:     rgba(200, 230, 255, 0.3);
+}
+
+window {
+    transparency: "real";
+    background-color: rgba(170, 200, 230, 0.4);
+    border: 2px;
+    border-color: @border-color;
+    border-radius: 16px;
+    padding: 10px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [inputbar, listview];
+}
+
+inputbar {
+    background-color: @background-alt;
+    text-color: #ffffff;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+listview {
+    background-color: transparent;   /* fully transparent list area */
+    columns: 1;
+    lines: 8;
+    spacing: 3px;
+    scrollbar: false;
+}
+
+
+
+
+element {
+    padding: 6px;
+    border-radius: 8px;
+}
+element normal.normal {
+    text-color: #ffffff;
+}
+
+element selected {
+    background-color: @selected-bg; /* icy blue highlight */
+    text-color: @foreground;
+}
+
+
+

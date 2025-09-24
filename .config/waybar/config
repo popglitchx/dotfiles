@@ -12,15 +12,16 @@
         "format": "{icon}",
         "format-icons": {
             "1": " web",
-            "2": "  code",
+            "2": " SuperProductivity",
             "3": "  term",
             "4": "  social",
-            "5": "  other",
+            "5": "󰓓  games",
+            "6": "  other",
             "urgent": "",
             "focused": "",
 	},
        "persistent-workspaces": {
-             "*": 5, // 5 workspaces by default on every monitor
+             "*": 6, // 5 workspaces by default on every monitor
        }
 },
     "hyprland/mode": {
@@ -81,6 +82,7 @@
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} 󰈀",
+        "format-linked": "{ifname}: network down",
         "format-disconnected": "Disconnected ⚠",
         "tooltip": false
     },

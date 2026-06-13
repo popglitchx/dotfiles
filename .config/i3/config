@@ -55,7 +55,6 @@ exec --no-startup-id copyq
 exec --no-startup-id "xrandr --output HDMI-1 --mode 1920x1080 --rate 100"
 
 exec --no-startup-id flameshot
-exec --no-startup-id blueman-tray
 
 # Switching kb layout
 exec --no-startup-id setxkbmap -layout us,ara -option grp:alt_shift_toggle

@@ -1,0 +1,84 @@
+# ============================================
+# THEME REFERENCE - Catppuccin Mocha + Glacier
+# ============================================
+# Use this file as a reference to manually update colors in configs.
+# Current theme: Catppuccin Mocha
+# Glacier theme preserved below (commented out)
+# ============================================
+
+# ============================================
+# CURRENT THEME: CATPPUCCIN MOCHA
+# ============================================
+
+[base]
+bg_primary = "#1e1e2e"
+bg_surface = "#181825"
+bg_surface_highlight = "#313244"
+bg_muted = "#45475a"
+
+[text]
+primary = "#cdd6f4"
+subtext = "#a6adc8"
+muted = "#585b70"
+accent = "#f5e0dc"
+
+[accent]
+blue = "#89b4fa"
+lavender = "#b4befe"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+flamingo = "#eba0ac"
+peach = "#fab387"
+green = "#a6e3a1"
+teal = "#94e2d5"
+yellow = "#f9e2af"
+red = "#f38ba8"
+sapphire = "#74c7ec"
+sky = "#89dceb"
+overlay = "#6c7086"
+
+[borders]
+active = "rgba(89b4faee)"
+inactive = "rgba(595959aa)"
+
+[cursor]
+text = "#1e1e2e"
+cursor = "#f5e0dc"
+
+[selection]
+background = "#313244"
+
+# ============================================
+# GLACIER THEME (PRESERVED - Uncomment to use)
+# ============================================
+
+# [glacier_base]
+# bg = "#0b0d0f"
+# bg_darker = "#080a0c"
+# fg = "#c5c8c6"
+# comment = "#4f5a63"
+# gray = "#3b444f"
+# dark_gray = "#2d3640"
+
+# [glacier_accent]
+# red = "#bd0f2f"
+# bright_red = "#bd162c"
+# green = "#35a770"
+# bright_green = "#33c281"
+# yellow = "#ffc033"
+# orange = "#fb9435"
+# blue = "#1f5872"
+# bright_blue = "#2696c2"
+# light_blue = "#6b7c93"
+# light_cyan = "#a4b5c6"
+# cyan = "#4ec9e2"
+
+# ============================================
+# USAGE
+# ============================================
+# To switch themes, manually update these files:
+# - ~/.config/alacritty/alacritty.toml (colors section)
+# - ~/.config/tmux/tmux.conf (status-style, pane-border-style)
+# - ~/.config/waybar/style.css (hardcoded colors)
+# - ~/.config/hypr/hyprland.conf (general col.active_border, col.inactive_border)
+# ============================================

@@ -1,0 +1,62 @@
+configuration {
+  modi: "drun,run,window";
+  show-icons: true;
+  icon-theme: "Papirus";
+  font: "Hack Nerd Font 14";
+}
+
+@import "theme.rasi"
+
+* {
+  transparency: "real";
+  text-color: @color-fg;
+  background-color: @color-bg;
+}
+
+window {
+  width: 50%;
+  height: 60%;
+  border: 2px;
+  border-color: @color-gray;
+  padding: 8px 12px;
+  border-radius: @rounded-md;
+}
+
+inputbar {
+  margin: 8px 0;
+}
+
+prompt {
+  text-color: @color-black;
+  padding: 4px 8px;
+  border-radius: @rounded-sm;
+  background-color: @color-yellow;
+}
+
+entry {
+  padding: 4px;
+}
+
+listview {
+  columns: 1;
+  lines: 20;
+  fixed-height: true;
+}
+
+element {
+  padding: 4px 8px;
+  border-radius: @rounded-sm;
+}
+
+element-text {
+  font: "Hack 11";
+  expand: true;
+}
+
+element selected {
+  background-color: @color-gray;
+}
+
+element active {
+  text-color: @color-yellow;
+}

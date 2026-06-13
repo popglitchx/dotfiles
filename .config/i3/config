@@ -61,6 +61,7 @@ exec --no-startup-id blueman-tray
 exec --no-startup-id setxkbmap -layout us,ara -option grp:alt_shift_toggle
 
 exec --no-startup-id caffeine
+exec --no-startup-id nitrogen --restore
 
 # Open a small terminal on startup
 # exec --no-startup-id kitty --name=_scratchpad_
@@ -124,7 +125,7 @@ floating_modifier $mainMod
 tiling_drag modifier titlebar
 
 # --- Core Window Manager Actions ---
-bindsym $mainMod+Return exec $terminal --name normal_terminal ~/.local/bin/kitty-tmux
+bindsym $mainMod+q exec $terminal --name normal_terminal ~/.local/bin/kitty-tmux
 bindsym $mainMod+Shift+q kill
 bindsym $mainMod+Shift+m exit
 bindsym $mainMod+e exec $fileManager
@@ -173,7 +174,7 @@ bindsym $mainMod+l focus right
 
 # --- Screenshots (Translated hyprshot to maim + xclip) ---
 #bindsym $mainMod+p exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
-bindsym $mainMod+Shift+s exec --no-startup-id maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym $mainMod+Shift+s exec --no-startup-id flameshot gui
 
 # --- Rename workspace ---
 bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
@@ -194,6 +195,9 @@ bindsym $mainMod+grave exec --no-startup-id "dunstctl history-pop"
 bindsym $mainMod+Shift+grave exec --no-startup-id "dunstctl context"
 #bindsym $mainMod+slash exec --no-startup-id "dunstctl set-paused toggle"
 
+# --- Keybind cheatsheet ---
+bindsym $mainMod+slash exec --no-startup-id ~/.config/i3/cheatsheet.sh
+
 # --- Clipboard ---
 bindsym $mainMod+Control+v exec --no-startup-id copyq show
 
@@ -207,6 +211,7 @@ bindsym $mainMod+b exec firefox
 # bindsym $mainMod+Shift+e exec "kmail --style=gtk"
 # bindsym $mainMod+f exec pcmanfm
 bindsym $mainMod+g exec gimp
+bindsym $mainMod+w exec nitrogen
 bindsym $mainMod+p exec pavucontrol
 # bindsym $mainMod+h exec script-communicator
 # bindsym $mainMod+i exec inkscape
@@ -297,6 +302,7 @@ assign [class="abaddon"]  	$ws4
 assign [class="steam"]  $ws4
 assign [class="ElyPrismLauncher"] $ws4
 assign [class="Minecraft"] $ws4
+for_window [class="Minecraft"] floating enable
 
 assign [class="Thunderbird"] 	$ws5
 #assign [class="Eclipse"]   	$ws6
@@ -333,6 +339,7 @@ for_window [instance="floating_terminal"] resize set 900 px 600 px
 for_window [instance="floating_terminal"] move position center
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Blueman-manager"] resize set 900 px 600 px
+for_window [class="Nitrogen"] floating enable
 
 # steam
 for_window [class="^Steam$" title="^Friends List$"] floating enable

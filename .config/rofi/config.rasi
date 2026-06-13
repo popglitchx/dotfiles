@@ -1,4 +1,2 @@
 
-//@theme "/usr/share/rofi/themes/fullscreen-preview.rasi"
-
-@theme "/usr/share/rofi/themes/dmenu.rasi"
+@theme "~/.config/rofi/themes/launcher.rasi"

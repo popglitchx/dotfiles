@@ -1,0 +1,7 @@
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+# Allows seamless copy/paste to your system clipboard
+save_to_clipboard = true

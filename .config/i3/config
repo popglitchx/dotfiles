@@ -14,9 +14,10 @@ font pango: Hack 9
 
 set $mainMod Mod4
 set $alt Mod1
-set $terminal kitty
+set $terminal alacritty
 set $fileManager thunar
 set $menu exec rofi -show drun
+set $scripts exec ~/.config/rofi/scripts/rofi-scripts.sh
 set $refresh_i3status killall -SIGUSR1 i3status
 
 set $ws1 "1"
@@ -49,6 +50,12 @@ exec --no-startup-id nm-applet
 # notification
 exec --no-startup-id dunst
 
+# Audio server (pipewire auto-starts wireplumber + pipewire-pulse)
+exec --no-startup-id pipewire
+
+# Set HDMI audio profile and default sink
+exec --no-startup-id sleep 2 && pactl set-card-profile 50 output:hdmi-stereo && wpctl set-volume 98 0.5
+
 # clipboard
 exec --no-startup-id copyq
 
@@ -60,7 +67,8 @@ exec --no-startup-id flameshot
 exec --no-startup-id setxkbmap -layout us,ara -option grp:alt_shift_toggle
 
 exec --no-startup-id caffeine
-exec --no-startup-id nitrogen --restore
+
+exec_always --no-startup-id feh --bg-fill --randomize ~/Pictures/wallpapers/*
 
 # Open a small terminal on startup
 # exec --no-startup-id kitty --name=_scratchpad_
@@ -95,16 +103,14 @@ hide_edge_borders none
 #client.focused_inactive #595959 #595959 #888888 #595959   #595959
 
 # color defines for zenburn styled i3
-set $bg     #2c2c2e
-set $fg     #9f9f9f
-set $hi     #efef8f
-set $ac     #a0afa0
-set $tx     #040404
-set $ia     #8f8f8f
-set $be     #8faf9f
-set $yw     #ccdc90
-set $gn     #88b090
-set $rd     #e89393
+set $bg     #282828
+set $fg     #ebdbb2
+set $hi     #928374
+set $ac     #504945
+set $tx     #ebdbb2
+set $ia     #504945
+set $gn     #98971a
+set $rd     #cc241d
 
 # set some nice colors      border     background  text
 client.focused              $ac        $ac         $tx
@@ -124,11 +130,13 @@ floating_modifier $mainMod
 tiling_drag modifier titlebar
 
 # --- Core Window Manager Actions ---
-bindsym $mainMod+q exec $terminal --name normal_terminal ~/.local/bin/kitty-tmux
+bindsym $mainMod+q exec "$terminal --class normal_terminal,Alacritty -e ~/.local/bin/kitty-tmux"
 bindsym $mainMod+Shift+q kill
 bindsym $mainMod+Shift+m exit
 bindsym $mainMod+e exec $fileManager
 bindsym $mainMod+d $menu
+bindsym $mainMod+Shift+d $scripts
+
 #bindsym $mainMod+d exec --no-startup-id i3-dmenu-desktop
 
 # Toggle Floating
@@ -238,9 +246,9 @@ bindsym $mainMod+x exec keepassxc
 # #bindsym $mainMod+z exec wpa_gui
 #
 #
-bindsym $alt+Return exec $terminal --name floating_terminal ~/.local/bin/kitty-tmux
-bindsym $mainMod+Shift+Return exec $terminal --name floating_terminal -d $(xcwd)
-
+bindsym $alt+Return exec "$terminal --class floating_terminal,Alacritty -e ~/.local/bin/kitty-tmux"
+# Not working for sm reason
+# bindsym $mainMod+Shift+Return exec 'alacritty --class floating_terminal,Alacritty --working-directory "$(xcwd)"'
 # screenshot & open in gimp
 #bindsym Ctrl+Print exec teiler
 bindsym Ctrl+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
@@ -443,17 +451,18 @@ mode "$mode_caps" {
 ###########
 
 bar {
-    font pango:Inconsolata
-    separator_symbol "*"
+    font pango:Hack 9
+    separator_symbol " | "
     status_command i3status --config ~/.config/i3/i3status.conf
+    position top
 
     colors {
         background          $bg
         statusline          $fg
         separator           $hi
-        focused_workspace   $gn        $bg        $ac
-        active_workspace    $gn        $ac        $tx
-        inactive_workspace  $bg        $bg        $ia
-        urgent_workspace    $rd        $bg        $ac
+        focused_workspace   #ebdbb2    $bg        #98971a
+        active_workspace    #ebdbb2    #3c3836   #ebdbb2
+        inactive_workspace  #504945    $bg        #504945
+        urgent_workspace    #1d2021    #cc241d   #ebdbb2
     }
 }

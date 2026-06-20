@@ -136,3 +136,11 @@ host divorcecrunch
 __EOF__
 chmod 600 ~/.ssh/config ~/.ssh/id_sf-lsd-segfault-net
 
+
+# Auto-start Xorg only on TTY1
+if [[ -z "$DISPLAY" && "$(tty)" == "/dev/tty1" ]]; then
+    exec startx
+fi
+
+# opencode
+export PATH=/home/null/.opencode/bin:$PATH

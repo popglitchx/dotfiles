@@ -1,73 +1,80 @@
+// Load with --config examples/2.jsonc
+// Note that you must replace the image path to an existing image to display it.
+
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-  // "logo": null,
-  "logo": {
-    "padding": {
-      "top": 2,
-      "left": 2,
-      "right": 1,
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    // "logo": {
+    //     "type": "iterm",
+    //     "source": "~/Desktop/apple1.png",
+    //     "width": 28,
+    //     "height": 12
+    // },
+    "display": {
+        "separator": "  ",
+        "constants": [
+            "─────────────────" // {$1}, used in Custom module
+        ],
+        "key": {
+            "type": "icon",
+            "paddingLeft": 2
+        }
     },
-  },
-  "display": {
-    "separator": ": ",
-  },
-  "modules": [
-    "break",
-    {
-      "type": "os",
-      "key": "  OS  ",
-      "keyColor": "cyan",
-    },
-    {
-      "type": "kernel",
-      "key": "  KER ",
-      "keyColor": "cyan",
-    },
-    {
-      "type": "uptime",
-      "key": "  UP  ",
-      "keyColor": "cyan",
-    },
-    {
-      "type": "command",
-      "key": "  AGE ",
-      "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days ",
-      "keyColor": "cyan",
-    },
-    {
-      "type": "packages",
-      "format": "{}",
-      "key": "  PKG ",
-      "keyColor": "cyan",
-    },
-    {
-      "type": "terminal",
-      "key": "  TER ",
-      "keyColor": "cyan",
-    },
-    {
-      "type": "wm",
-      "key": "  WM  ",
-      "keyColor": "cyan",
-    },
-    {
-      "type": "cpu",
-      "key": "  CPU ",
-      "keyColor": "cyan",
-    },
-    {
-      "type": "gpu",
-      "key": "  GPU ",
-      "keyColor": "cyan",
-    },
-    "break",
-    {
-      "type": "colors",
-      "paddingLeft": 8,
-      "symbol": "circle",
-      "block": {
-        "width": 10,
-      },
-    },
-  ],
+    "modules": [
+        {
+            "type": "custom", // HardwareStart
+            // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
+            "format": "┌{$1} {#1}Hardware Information{#} {$1}┐"
+        },
+        "host",
+        "cpu",
+        "gpu",
+        "disk",
+        "memory",
+        "swap",
+        "display",
+        "brightness",
+        "battery",
+        "poweradapter",
+        "bluetooth",
+        "sound",
+        "gamepad",
+        {
+            "type": "custom", // SoftwareStart
+            "format": "├{$1} {#1}Software Information{#} {$1}┤"
+        },
+        {
+            "type": "title",
+            "keyIcon": "",
+            "key": "Title", // Title module has no key by default, so that icon is not displayed
+            "format": "{user-name}@{host-name}"
+        },
+        "os",
+        "kernel",
+        "lm",
+        "de",
+        "wm",
+        "shell",
+        "terminal",
+        "terminalfont",
+        "theme",
+        "icons",
+        "wallpaper",
+        "packages",
+        "uptime",
+        "media",
+        {
+            "type": "localip",
+            "compact": true
+        },
+        {
+            "type": "publicip",
+            "timeout": 1000
+        },
+        {
+            "type": "wifi",
+            "format": "{ssid}"
+        },
+        "locale",
+       
+    ]
 }

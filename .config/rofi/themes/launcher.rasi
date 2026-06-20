@@ -2,7 +2,7 @@ configuration {
   modi: "drun";
   show-icons: true;
   icon-theme: "Papirus";
-  display-drun: "app";
+  display-drun: "";
   font: "Hack Nerd Font 14";
 }
 
@@ -23,28 +23,47 @@ window {
   border-radius: @rounded-md;
 }
 
+mainbox {
+  children: [ inputbar, listview ];
+  spacing: 12px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
 inputbar {
-  margin: 8px 0;
+  children: [ prompt, entry ];
+  spacing: 10px;
+  padding: 10px 14px;
+  border-radius: @rounded-md;
+  background-color: @color-gray;
 }
 
 prompt {
-  text-color: @color-black;
-  padding: 4px 8px;
-  border-radius: @rounded-sm;
-  background-color: @color-green;
+  enabled: false;
 }
 
 entry {
-  padding: 4px;
+  placeholder: "Search";
+  placeholder-color: @color-lightgray;
+  padding: 2px 0;
+  background-color: transparent;
+  text-color: @color-fg;
+  font: "Hack Nerd Font 14";
 }
 
 listview {
   columns: 2;
+  spacing: 6px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 
 element {
   padding: 8px 10px;
   border-radius: @rounded-sm;
+  spacing: 8px;
 }
 
 element selected {

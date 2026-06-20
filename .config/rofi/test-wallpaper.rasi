@@ -1,0 +1,106 @@
+/* 🖼️ ROFI WALLPAPER GRID THEME */
+
+configuration {
+    show-icons: true;
+}
+
+* {
+    var-win-bg:           #282828;
+    var-input-bg:         #3c3836;
+    var-text-def:         #ebdbb2;
+    var-text-dim:         #928374;
+    selected-normal-background:   #458588;
+    selected-normal-foreground:   #fbf1c7;
+}
+
+window {
+    width: 60%;
+    height: 74%;
+    border: 2px;
+    border-radius: 12px;
+    background-color: @var-win-bg;
+    text-color: @var-text-def;
+}
+
+mainbox {
+    children: [ "inputbar", "message", "listview" ];
+    spacing: 10px;
+    padding: 20px;
+}
+
+inputbar {
+    enabled: true;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: @var-input-bg;
+    children: [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled: true;
+    padding: 0px 10px 0px 0px;
+    background-color: transparent;
+    text-color: @var-text-dim;
+}
+
+entry {
+    placeholder: "Search Wallpapers...";
+    background-color: transparent;
+    text-color: @var-text-def;
+}
+
+message {
+    enabled: true;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background-color: transparent;
+    text-color: @var-text-dim;
+}
+
+listview {
+    columns: 4;
+    lines: 2;
+    fixed-columns: true;
+    fixed-height: true;
+    dynamic: false;
+    scrollbar: true;
+    spacing: 15px;
+    padding: 10px;
+    cycle: false;
+    layout: vertical;
+    reverse: false;
+}
+
+element {
+    orientation: vertical;
+    padding: 10px;
+    spacing: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @var-text-def;
+}
+
+element selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+    border: 2px;
+    border-color: #458588;
+}
+
+element-icon {
+    size: 6em;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    background-color: transparent;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: @var-text-def;
+}

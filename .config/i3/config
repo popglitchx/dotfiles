@@ -518,7 +518,7 @@ ipc-socket /tmp/i3-ipc.sock
 # --- Xbox controller mode switch ---
 # Super+F11 = desktop mode (mouse+keyboard), Super+Shift+F11 = game mode (raw pad)
 bindsym $mainMod+F11 exec ~/.config/xboxdrv/switch-xboxdrv-mode.sh
-bindsym F11 exec ~/.config/xboxdrv/switch-xboxdrv-mode.sh
+# bindsym F11 exec ~/.config/xboxdrv/switch-xboxdrv-mode.sh
 # Y button = toggle virtual keyboard
 bindsym $mainMod+F9 exec ~/.config/xboxdrv/toggle-keyboard.sh
 

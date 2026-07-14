@@ -60,3 +60,11 @@ element selected {
 element active {
   text-color: @color-yellow;
 }
+
+element urgent {
+  text-color: @color-purple;
+}
+
+element alternate {
+  text-color: @color-fg;
+}

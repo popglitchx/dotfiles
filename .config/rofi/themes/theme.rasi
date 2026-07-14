@@ -9,6 +9,7 @@
   color-green: #b8bb26;
   color-gray: #3c3836;
   color-lightgray: #665c54;
+  color-purple: #d3869b;
   rounded-sm: 2px;
   rounded-md: 6px;
   rounded-lg: 8px;
